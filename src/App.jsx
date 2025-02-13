@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Flex, Input, Button, message, Upload, Spin } from "antd";
 import { UploadOutlined } from '@ant-design/icons';
@@ -64,6 +64,16 @@ function FileUpload() {
         message.error("Failed to generate report. Try again.");
       });
   }
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_APP_SERVER}/api/v1/file/`)
+      .then(response => {
+        console.log("Files deleted successfully");
+      })
+      .catch(error => {
+        console.error("Error deleting files:", error);
+      });
+  }, [])
 
   return (
     <Flex justify='center' style={{ padding: "100px" }}>
