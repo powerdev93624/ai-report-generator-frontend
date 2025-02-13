@@ -90,7 +90,10 @@ function FileUpload() {
         </Upload>
         <Button onClick={generate}>Generate Report</Button>
         <Button type="primary">
-          <a href={`${import.meta.env.VITE_APP_SERVER}/api/v1/file/download`}>Download</a>
+          <a href={`${import.meta.env.VITE_APP_SERVER}/api/v1/file/download_report`}>Download Report</a>
+        </Button>
+        <Button type="primary">
+          <a href={`${import.meta.env.VITE_APP_SERVER}/api/v1/file/download_result`}>Download Result</a>
         </Button>
       </Flex> : <Spin />}
 
